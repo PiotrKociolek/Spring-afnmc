@@ -10,33 +10,46 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 public class GlobalExceptionHandler {
     @ExceptionHandler(value = PasswordDoesNotMatchException.class)
     @ResponseStatus(value = HttpStatus.UNAUTHORIZED)
-    public void handlePasswordDoesNotMatchException() {}
+    public void handlePasswordDoesNotMatchException() {
+    }
 
     @ExceptionHandler(value = UserAlreadyExistException.class)
     @ResponseStatus(value = HttpStatus.CONFLICT)
-    public void handleUSerAlreadyExistException(){}
+    public void handleUSerAlreadyExistException() {
+    }
 
     @ExceptionHandler(value = UserNotFoundException.class)
     @ResponseStatus(value = HttpStatus.NOT_FOUND)
-    public void handleUserNotFoundException(){}
+    public void handleUserNotFoundException() {
+    }
 
     @ExceptionHandler(value = FlightNotFoundException.class)
     @ResponseStatus(value = HttpStatus.NOT_FOUND)
-    public void handleFLightNotFoundException(){}
+    public void handleFLightNotFoundException() {
+    }
+
     @ExceptionHandler(value = InvalidTicketIdException.class)
     @ResponseStatus(value = HttpStatus.NOT_FOUND)
-    public void handleInvalidTicketIdException(){}
+    public void handleInvalidTicketIdException() {
+    }
+
     @ExceptionHandler(value = InvalidCheckInPriorityException.class)
     @ResponseStatus(value = HttpStatus.NOT_FOUND)
-    public void handleInvalidCheckInPriorityException(){}
+    public void handleInvalidCheckInPriorityException() {
+    }
 
     @ExceptionHandler(value = InvalidLuggageTypeException.class)
     @ResponseStatus(value = HttpStatus.NOT_FOUND)
-    public void handleInvalidLuggageTypeException(){}
+    public void handleInvalidLuggageTypeException() {
+    }
+
     @ExceptionHandler(value = AirportNotFoundByIdException.class)
     @ResponseStatus(value = HttpStatus.NOT_FOUND)
-    public void handleAirportNotFoundByIdException(){}
+    public void handleAirportNotFoundByIdException() {
+    }
+
     @ExceptionHandler(value = DocumentNotFoundException.class)
     @ResponseStatus(value = HttpStatus.NOT_FOUND)
-    public void handleDocumentNotFoundException(){}
+    public void handleDocumentNotFoundException() {
+    }
 }

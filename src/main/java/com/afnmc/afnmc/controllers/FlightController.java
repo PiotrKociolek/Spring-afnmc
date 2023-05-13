@@ -3,9 +3,7 @@ package com.afnmc.afnmc.controllers;
 import com.afnmc.afnmc.models.dtos.request.ChangeFlightStatusDto;
 import com.afnmc.afnmc.models.dtos.request.CreateFlightRequestDto;
 import com.afnmc.afnmc.models.dtos.response.FlightResponseDto;
-import com.afnmc.afnmc.models.flags.FlightStatus;
 import com.afnmc.afnmc.services.FlightService;
-import com.afnmc.afnmc.services.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -19,24 +17,28 @@ import org.springframework.web.bind.annotation.*;
 
 public class FlightController {
     private final FlightService flightService;
-    @GetMapping (value = "/page/{size}/{page}", produces = MediaType.APPLICATION_JSON_VALUE)
+
+    @GetMapping(value = "/page/{size}/{page}", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(value = HttpStatus.OK)
-    public Page<FlightResponseDto> browseFlightList(@PathVariable("size")final int size, @PathVariable("page") final int page){
-        return flightService.browseFlightList(PageRequest.of(page,size));
+    public Page<FlightResponseDto> browseFlightList(@PathVariable("size") final int size, @PathVariable("page") final int page) {
+        return flightService.browseFlightList(PageRequest.of(page, size));
     }
-    @PutMapping (value = "/changeFlightStatus/{id}/{status}" ,produces = MediaType.APPLICATION_JSON_VALUE)
+
+    @PutMapping(value = "/changeFlightStatus/{id}/{status}", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(value = HttpStatus.OK)
-    public void changeFLightStatus(@RequestBody ChangeFlightStatusDto changeFlightStatusDto){
+    public void changeFLightStatus(@RequestBody final ChangeFlightStatusDto changeFlightStatusDto) {
         flightService.changeFlightStatus(changeFlightStatusDto);
     }
+
     @PutMapping(value = "/addFlight/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(value = HttpStatus.OK)
-    public void addFlight(@RequestBody CreateFlightRequestDto createFlightRequestDto){
+    public void addFlight(@RequestBody final CreateFlightRequestDto createFlightRequestDto) {
         flightService.addFlight(createFlightRequestDto);
     }
-    @DeleteMapping(value="/removeFlight/{flightId}", produces = MediaType.APPLICATION_JSON_VALUE)
+
+    @DeleteMapping(value = "/removeFlight/{flightId}", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(value = HttpStatus.OK)
-    public void removeFLight(@PathVariable("flightId") final String flightId){
+    public void removeFLight(@PathVariable("flightId") final String flightId) {
         flightService.removeFlight(flightId);
     }
 }

@@ -27,7 +27,7 @@ public class TicketServiceImpl implements TicketService {
 
     @Override
     public void addTicket(@Valid final CreateTicketRequestDto createTicketRequestDto) {
-        TicketDocument ticketDocument = modelMapper.map(createTicketRequestDto, TicketDocument.class);
+        final TicketDocument ticketDocument = modelMapper.map(createTicketRequestDto, TicketDocument.class);
         ticketDocument.setId(null);
         ticketRepository.save(ticketDocument);
     }
@@ -48,29 +48,29 @@ public class TicketServiceImpl implements TicketService {
 
     @Override
     public void setCheckInPriority(@Valid final SetCheckInPriorityDto setCheckInPriorityDto) {
-       ticketRepository.findById(setCheckInPriorityDto.getId()).ifPresentOrElse(x ->{
-           x.setCheckingPriority(setCheckInPriorityDto.getCheckInPriority());
-           ticketRepository.save(x);
-        }, InvalidCheckInPriorityException::new
-       );
+        ticketRepository.findById(setCheckInPriorityDto.getId()).ifPresentOrElse(x -> {
+                    x.setCheckingPriority(setCheckInPriorityDto.getCheckInPriority());
+                    ticketRepository.save(x);
+                }, InvalidCheckInPriorityException::new
+        );
     }
 
     @Override
     public void setLuggageType(@Valid final SetLuggageTypeDto setLuggageTypeDto) {
-        ticketRepository.findById(setLuggageTypeDto.getId()).ifPresentOrElse(x ->{
-            x.setLuggageType(setLuggageTypeDto.getLuggageType());
-            ticketRepository.save(x);
-        }, InvalidLuggageTypeException::new
+        ticketRepository.findById(setLuggageTypeDto.getId()).ifPresentOrElse(x -> {
+                    x.setLuggageType(setLuggageTypeDto.getLuggageType());
+                    ticketRepository.save(x);
+                }, InvalidLuggageTypeException::new
         );
     }
 
     @Override
     public List<TicketResponseDto> getListOfTickets(final String flightId) {
-        return ticketRepository.findByFlightId(flightId).stream().map(x ->modelMapper.map(x,TicketResponseDto.class)).toList();
+        return ticketRepository.findByFlightId(flightId).stream().map(x -> modelMapper.map(x, TicketResponseDto.class)).toList();
     }
 
     @Override
     public Page<TicketResponseDto> getPageOfTickets(final String flightId, final Pageable pageable) {
-        return ticketRepository.findAllByFlightId(flightId, pageable).map(x->modelMapper.map(x, TicketResponseDto.class));
+        return ticketRepository.findAllByFlightId(flightId, pageable).map(x -> modelMapper.map(x, TicketResponseDto.class));
     }
 }

@@ -14,12 +14,12 @@ import org.springframework.stereotype.Service;
 @Service
 @RequiredArgsConstructor
 public class AirportServiceImpl implements AirportService {
-private final AirportRepository airportRepository;
-private final ModelMapper modelMapper;
+    private final AirportRepository airportRepository;
+    private final ModelMapper modelMapper;
 
     @Override
     public void createAirport(final AirportRequestDto airportRequestDto) {
-        AirportDocument airportDocument = modelMapper.map(airportRequestDto, AirportDocument.class);
+        final AirportDocument airportDocument = modelMapper.map(airportRequestDto, AirportDocument.class);
         airportDocument.setId(null);
         airportRepository.save(airportDocument);
     }

@@ -25,7 +25,7 @@ class UserServiceImpl implements UserService {
 
     @Override
     public void registerUser(@Valid final UserRequestDto userRequestDto) {
-        UserDocument userDocument = modelMapper.map(userRequestDto, UserDocument.class);
+        final UserDocument userDocument = modelMapper.map(userRequestDto, UserDocument.class);
         userDocument.setId(null);
         userDocument.setPassword(passwordEncoder.encryptPassword(userRequestDto.getPassword()));
         userRepository
@@ -47,7 +47,7 @@ class UserServiceImpl implements UserService {
     @Override
     public void deleteUser(final String id) {
         userRepository.findById(id)
-                .ifPresentOrElse(userRepository::delete,UserNotFoundException::new);
+                .ifPresentOrElse(userRepository::delete, UserNotFoundException::new);
 
     }
 

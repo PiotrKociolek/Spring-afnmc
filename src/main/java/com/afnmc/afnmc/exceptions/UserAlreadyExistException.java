@@ -1,5 +1,5 @@
 package com.afnmc.afnmc.exceptions;
 
-public class UserAlreadyExistException extends RuntimeException{
+public class UserAlreadyExistException extends RuntimeException {
 
 }

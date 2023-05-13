@@ -15,24 +15,27 @@ import org.springframework.web.bind.annotation.*;
 public class AirportController {
     private final AirportService airportService;
 
-    @PutMapping (value = "/create/airport")
+    @PutMapping(value = "/create/airport")
     @ResponseStatus(value = HttpStatus.OK)
-    public void createAirport(@RequestBody AirportRequestDto airportRequestDto){
+    public void createAirport(@RequestBody final AirportRequestDto airportRequestDto) {
         airportService.createAirport(airportRequestDto);
     }
-    @DeleteMapping (value = "/remove/airport/{airportId}")
+
+    @DeleteMapping(value = "/remove/airport/{airportId}")
     @ResponseStatus(value = HttpStatus.OK)
-    public void removeAirport(@PathVariable("airportId")final String airportId){
+    public void removeAirport(@PathVariable("airportId") final String airportId) {
         airportService.removeAirport(airportId);
     }
-    @PutMapping (value = "/get/airport/{id}")
+
+    @PutMapping(value = "/get/airport/{id}")
     @ResponseStatus(value = HttpStatus.OK)
-    public AirportResponseDto getAirportById(@PathVariable("id")final String id){
+    public AirportResponseDto getAirportById(@PathVariable("id") final String id) {
         return airportService.getAirportById(id);
     }
-    @PutMapping (value = "/get/airport/list/{size}/{page}")
+
+    @PutMapping(value = "/get/airport/list/{size}/{page}")
     @ResponseStatus(value = HttpStatus.OK)
-    public Page<AirportResponseDto> getAirportsList(@PathVariable("size")final int size, @PathVariable("page") final int page){
+    public Page<AirportResponseDto> getAirportsList(@PathVariable("size") final int size, @PathVariable("page") final int page) {
         return airportService.getAirportsList(PageRequest.of(page, size));
     }
 }

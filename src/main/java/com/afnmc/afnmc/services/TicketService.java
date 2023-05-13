@@ -12,11 +12,17 @@ import java.util.List;
 
 public interface TicketService {
     void addTicket(CreateTicketRequestDto createTicketRequestDto);
+
     void removeTicket(String id);
+
     void setTicketType(SetTicketTypeDto setTicketTypeDto);
+
     void setCheckInPriority(SetCheckInPriorityDto setCheckInPriorityDto);
+
     void setLuggageType(SetLuggageTypeDto setLuggageTypeDto);
+
     List<TicketResponseDto> getListOfTickets(String flightId);
-    Page<TicketResponseDto>getPageOfTickets(String FlightId, Pageable pageable);
+
+    Page<TicketResponseDto> getPageOfTickets(String FlightId, Pageable pageable);
 
 }

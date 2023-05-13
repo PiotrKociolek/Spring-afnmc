@@ -34,7 +34,7 @@ public class FlightServiceImpl implements FlightService {
 
     @Override
     public void addFlight(@Valid final CreateFlightRequestDto createFlightRequestDto) {
-        FlightDocument flightDocument = modelMapper.map(createFlightRequestDto, FlightDocument.class);
+        final FlightDocument flightDocument = modelMapper.map(createFlightRequestDto, FlightDocument.class);
         flightDocument.setId(null);
         flightRepository.save(flightDocument);
     }

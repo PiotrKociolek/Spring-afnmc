@@ -19,7 +19,7 @@ public class AircraftServiceImpl implements AircraftService {
 
     @Override
     public void addAircraft(final AircraftRequestDto aircraftRequestDto) {
-        AircraftDocument aircraftDocument = modelMapper.map(aircraftRequestDto, AircraftDocument.class);
+        final AircraftDocument aircraftDocument = modelMapper.map(aircraftRequestDto, AircraftDocument.class);
         aircraftDocument.setId(null);
         aircraftRepository.save(aircraftDocument);
     }
