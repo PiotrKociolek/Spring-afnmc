@@ -1,4 +1,4 @@
-package com.afnmc.afnmc.services;
+package com.afnmc.afnmc.services.impl;
 
 import com.afnmc.afnmc.exceptions.InvalidCheckInPriorityException;
 import com.afnmc.afnmc.exceptions.InvalidLuggageTypeException;
@@ -10,6 +10,7 @@ import com.afnmc.afnmc.models.dtos.request.SetLuggageTypeDto;
 import com.afnmc.afnmc.models.dtos.request.SetTicketTypeDto;
 import com.afnmc.afnmc.models.dtos.response.TicketResponseDto;
 import com.afnmc.afnmc.repositories.TicketRepository;
+import com.afnmc.afnmc.services.TicketService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
@@ -21,7 +22,7 @@ import java.util.List;
 
 @Service
 @RequiredArgsConstructor
-public class TicketServiceImpl implements TicketService {
+class TicketServiceImpl implements TicketService {
     private final TicketRepository ticketRepository;
     private final ModelMapper modelMapper;
 

@@ -1,10 +1,11 @@
-package com.afnmc.afnmc.services;
+package com.afnmc.afnmc.services.impl;
 
 import com.afnmc.afnmc.exceptions.DocumentNotFoundException;
 import com.afnmc.afnmc.models.documets.AircraftDocument;
 import com.afnmc.afnmc.models.dtos.request.AircraftRequestDto;
 import com.afnmc.afnmc.models.dtos.response.AircraftResponseDto;
 import com.afnmc.afnmc.repositories.AircraftRepository;
+import com.afnmc.afnmc.services.AircraftService;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.data.domain.Page;
@@ -13,7 +14,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
-public class AircraftServiceImpl implements AircraftService {
+class AircraftServiceImpl implements AircraftService {
     private final ModelMapper modelMapper;
     private final AircraftRepository aircraftRepository;
 

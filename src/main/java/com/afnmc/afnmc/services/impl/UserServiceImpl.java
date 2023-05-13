@@ -1,4 +1,4 @@
-package com.afnmc.afnmc.services;
+package com.afnmc.afnmc.services.impl;
 
 import com.afnmc.afnmc.components.PasswordEncoder;
 import com.afnmc.afnmc.exceptions.PasswordDoesNotMatchException;
@@ -8,6 +8,7 @@ import com.afnmc.afnmc.models.documets.UserDocument;
 import com.afnmc.afnmc.models.dtos.request.UserRequestDto;
 import com.afnmc.afnmc.models.dtos.response.UserJWT;
 import com.afnmc.afnmc.repositories.UserRepository;
+import com.afnmc.afnmc.services.UserService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;

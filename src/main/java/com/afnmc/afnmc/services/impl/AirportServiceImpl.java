@@ -1,10 +1,11 @@
-package com.afnmc.afnmc.services;
+package com.afnmc.afnmc.services.impl;
 
 import com.afnmc.afnmc.exceptions.AirportNotFoundByIdException;
 import com.afnmc.afnmc.models.documets.AirportDocument;
 import com.afnmc.afnmc.models.dtos.request.AirportRequestDto;
 import com.afnmc.afnmc.models.dtos.response.AirportResponseDto;
 import com.afnmc.afnmc.repositories.AirportRepository;
+import com.afnmc.afnmc.services.AirportService;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.data.domain.Page;
@@ -13,7 +14,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
-public class AirportServiceImpl implements AirportService {
+class AirportServiceImpl implements AirportService {
     private final AirportRepository airportRepository;
     private final ModelMapper modelMapper;
 
