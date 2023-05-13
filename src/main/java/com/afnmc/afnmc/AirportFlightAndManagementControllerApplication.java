@@ -13,6 +13,3 @@ public class AirportFlightAndManagementControllerApplication {
     }
 
 }
-//dodanie modeli, repozytoriow,seriwsow (bilety,loty)
-//serwis od lotów
-//flagi do lotów on time/delay/cancelled itp +
