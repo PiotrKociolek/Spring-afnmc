@@ -2,6 +2,7 @@ package com.afnmc.afnmc.controllers;
 
 import com.afnmc.afnmc.models.dtos.request.UserRequestDto;
 import com.afnmc.afnmc.models.dtos.response.UserJWT;
+import com.afnmc.afnmc.models.dtos.response.UserLoginResponseDto;
 import com.afnmc.afnmc.services.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -23,7 +24,7 @@ public class UserController {
 
     @PostMapping(value = "/login/{email}/{password}", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(value = HttpStatus.OK)
-    public UserJWT loginUser(@PathVariable("email") final String email, @PathVariable("password") final String password) {
+    public UserLoginResponseDto loginUser(@PathVariable("email") final String email, @PathVariable("password") final String password) {
         return userService.loginUser(email, password);
     }
     // "/login/{email}/{password}"

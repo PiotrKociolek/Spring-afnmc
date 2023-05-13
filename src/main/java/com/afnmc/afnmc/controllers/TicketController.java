@@ -11,6 +11,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -21,7 +22,7 @@ import java.util.List;
 
 public class TicketController {
     private final TicketService ticketService;
-
+    @PreAuthorize("USER")
     @PutMapping(value = "/addTicket", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(value = HttpStatus.OK)
     public void addTicket(@RequestBody final CreateTicketRequestDto createTicketRequestDto) {
@@ -33,19 +34,18 @@ public class TicketController {
     public void removeTicket(@PathVariable("id") final String id) {
         ticketService.removeTicket(id);
     }
-
     @PutMapping(value = "/set/type", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(value = HttpStatus.OK)
     public void setTicketType(@RequestBody final SetTicketTypeDto setTicketTypeDto) {
         ticketService.setTicketType(setTicketTypeDto);
     }
-
+    @PreAuthorize("USER")
     @PutMapping(value = "/set/priority", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(value = HttpStatus.OK)
     public void setCheckInPriority(@RequestBody final SetCheckInPriorityDto setCheckInPriorityDto) {
         ticketService.setCheckInPriority(setCheckInPriorityDto);
     }
-
+    @PreAuthorize("USER")
     @PutMapping(value = "/set/luggage", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(value = HttpStatus.OK)
     public void setLuggageType(@RequestBody final SetLuggageTypeDto setLuggageTypeDto) {
@@ -57,7 +57,7 @@ public class TicketController {
     public List<TicketResponseDto> getListOfTickets(@PathVariable("flightId") final String flightId) {
         return ticketService.getListOfTickets(flightId);
     }
-
+    @PreAuthorize("USER")
     @PutMapping(value = "/get/page/{flightId}/{size}/{page}", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(value = HttpStatus.OK)
     public Page<TicketResponseDto> getPageOfTickets(@PathVariable("flightId") final String flightId, @PathVariable("size") final int size, @PathVariable("page") final int page) {

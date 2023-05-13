@@ -9,6 +9,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -17,7 +18,7 @@ import org.springframework.web.bind.annotation.*;
 
 public class FlightController {
     private final FlightService flightService;
-
+    @PreAuthorize("USER")
     @GetMapping(value = "/page/{size}/{page}", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(value = HttpStatus.OK)
     public Page<FlightResponseDto> browseFlightList(@PathVariable("size") final int size, @PathVariable("page") final int page) {

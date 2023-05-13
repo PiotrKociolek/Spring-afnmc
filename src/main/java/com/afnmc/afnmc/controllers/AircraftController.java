@@ -7,6 +7,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -27,14 +28,14 @@ public class AircraftController {
     public void removeAircraft(@PathVariable("id") final String id) {
         aircraftService.removeAircraft(id);
     }
-
-    @PutMapping(value = "get/aircraft/{id}")
+    @PreAuthorize("USER")
+    @PutMapping(value = "/get/aircraft/{id}")
     @ResponseStatus(value = HttpStatus.OK)
     public AircraftResponseDto getAircraftById(@PathVariable("id") final String id) {
         return aircraftService.getAircraftById(id);
     }
 
-    @PutMapping(value = "get/aircraft/list/{page}/{size}")
+    @PutMapping(value = "/get/aircraft/list/{page}/{size}")
     @ResponseStatus(value = HttpStatus.OK)
     public Page<AircraftResponseDto> getAircraftList(@PathVariable("page") final int page, @PathVariable("size") final int size) {
         return aircraftService.getAircraftList(PageRequest.of(page, size));
