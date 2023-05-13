@@ -11,9 +11,8 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @AllArgsConstructor
 @Document("aircraft")
 public class AircraftDocument {
-    @Id
-    private String id;
-    private String brand;
-    private String model;
-    private int seatsNumber;
+  @Id private String id;
+  private String brand;
+  private String model;
+  private int seatsNumber;
 }

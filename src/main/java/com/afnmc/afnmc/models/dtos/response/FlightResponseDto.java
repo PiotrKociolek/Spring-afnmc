@@ -1,11 +1,10 @@
 package com.afnmc.afnmc.models.dtos.response;
 
+import java.time.Instant;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
-
-import java.time.Instant;
 
 @Data
 @NoArgsConstructor

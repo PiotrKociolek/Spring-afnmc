@@ -1,23 +1,22 @@
 package com.afnmc.afnmc.utilities.jwt;
 
+import static java.nio.charset.StandardCharsets.UTF_8;
+
 import com.afnmc.afnmc.exceptions.JwtGenerationException;
 import com.afnmc.afnmc.models.documets.UserDocument;
 import com.afnmc.afnmc.models.dtos.response.UserJWT;
 import com.afnmc.afnmc.repositories.UserRepository;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import lombok.RequiredArgsConstructor;
-
-import javax.crypto.Cipher;
-import javax.crypto.spec.IvParameterSpec;
-import javax.crypto.spec.SecretKeySpec;
 import java.security.spec.AlgorithmParameterSpec;
 import java.time.Instant;
 import java.time.temporal.ChronoUnit;
 import java.util.Base64;
 import java.util.Optional;
-
-import static java.nio.charset.StandardCharsets.UTF_8;
+import javax.crypto.Cipher;
+import javax.crypto.spec.IvParameterSpec;
+import javax.crypto.spec.SecretKeySpec;
+import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
 public class JwtTokenEncoderImpl implements JwtTokenEncoder {

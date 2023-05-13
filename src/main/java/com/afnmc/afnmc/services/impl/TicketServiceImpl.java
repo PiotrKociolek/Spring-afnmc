@@ -12,13 +12,12 @@ import com.afnmc.afnmc.models.dtos.response.TicketResponseDto;
 import com.afnmc.afnmc.repositories.TicketRepository;
 import com.afnmc.afnmc.services.TicketService;
 import jakarta.validation.Valid;
+import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 @Service
 @RequiredArgsConstructor

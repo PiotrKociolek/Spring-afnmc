@@ -2,11 +2,10 @@ package com.afnmc.afnmc.utilities.validation;
 
 import jakarta.validation.ConstraintValidator;
 import jakarta.validation.ConstraintValidatorContext;
-import org.passay.*;
-
 import java.util.Arrays;
 import java.util.List;
 import java.util.Properties;
+import org.passay.*;
 
 public class PasswordValidationConstraints implements ConstraintValidator<ValidPassword, String> {
     @Override

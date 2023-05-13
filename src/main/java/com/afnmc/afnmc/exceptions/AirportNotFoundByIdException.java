@@ -1,4 +1,3 @@
 package com.afnmc.afnmc.exceptions;
 
-public class AirportNotFoundByIdException extends RuntimeException {
-}
+public class AirportNotFoundByIdException extends RuntimeException {}

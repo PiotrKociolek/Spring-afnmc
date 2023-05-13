@@ -1,7 +1,6 @@
 package com.afnmc.afnmc.controllers;
 
 import com.afnmc.afnmc.models.dtos.request.UserRequestDto;
-import com.afnmc.afnmc.models.dtos.response.UserJWT;
 import com.afnmc.afnmc.models.dtos.response.UserLoginResponseDto;
 import com.afnmc.afnmc.services.UserService;
 import lombok.RequiredArgsConstructor;

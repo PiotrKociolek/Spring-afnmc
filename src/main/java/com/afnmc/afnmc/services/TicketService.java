@@ -5,10 +5,9 @@ import com.afnmc.afnmc.models.dtos.request.SetCheckInPriorityDto;
 import com.afnmc.afnmc.models.dtos.request.SetLuggageTypeDto;
 import com.afnmc.afnmc.models.dtos.request.SetTicketTypeDto;
 import com.afnmc.afnmc.models.dtos.response.TicketResponseDto;
+import java.util.List;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-
-import java.util.List;
 
 public interface TicketService {
     void addTicket(CreateTicketRequestDto createTicketRequestDto);
