@@ -19,40 +19,48 @@ import java.util.List;
 @RequiredArgsConstructor
 @RequestMapping("/ticket")
 
-public class TicketController  {
+public class TicketController {
     private final TicketService ticketService;
-    @PutMapping (value = "/addTicket", produces = MediaType.APPLICATION_JSON_VALUE)
-    @ResponseStatus(value = HttpStatus.OK)
-    public void addTicket(@RequestBody final CreateTicketRequestDto createTicketRequestDto){ticketService.addTicket(createTicketRequestDto);}
 
-    @DeleteMapping(value="/remove/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    @ResponseStatus(value =HttpStatus.OK)
-    public void removeTicket(@PathVariable("id") final String id){
+    @PutMapping(value = "/addTicket", produces = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseStatus(value = HttpStatus.OK)
+    public void addTicket(@RequestBody final CreateTicketRequestDto createTicketRequestDto) {
+        ticketService.addTicket(createTicketRequestDto);
+    }
+
+    @DeleteMapping(value = "/remove/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseStatus(value = HttpStatus.OK)
+    public void removeTicket(@PathVariable("id") final String id) {
         ticketService.removeTicket(id);
     }
+
     @PutMapping(value = "/set/type", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(value = HttpStatus.OK)
-    public void setTicketType(@RequestBody final SetTicketTypeDto setTicketTypeDto){
+    public void setTicketType(@RequestBody final SetTicketTypeDto setTicketTypeDto) {
         ticketService.setTicketType(setTicketTypeDto);
     }
-    @PutMapping(value="/set/priority", produces = MediaType.APPLICATION_JSON_VALUE)
+
+    @PutMapping(value = "/set/priority", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(value = HttpStatus.OK)
-    public void setCheckInPriority(@RequestBody final SetCheckInPriorityDto setCheckInPriorityDto){
+    public void setCheckInPriority(@RequestBody final SetCheckInPriorityDto setCheckInPriorityDto) {
         ticketService.setCheckInPriority(setCheckInPriorityDto);
     }
+
     @PutMapping(value = "/set/luggage", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(value = HttpStatus.OK)
-    public void setLuggageType(@RequestBody final SetLuggageTypeDto setLuggageTypeDto){
+    public void setLuggageType(@RequestBody final SetLuggageTypeDto setLuggageTypeDto) {
         ticketService.setLuggageType(setLuggageTypeDto);
     }
-    @GetMapping(value ="/get/list/{flightId}", produces = MediaType.APPLICATION_JSON_VALUE)
-    @ResponseStatus(value = HttpStatus.OK)
-    public List<TicketResponseDto> getListOfTickets(@PathVariable("flightId")final String flightId){
-        return ticketService.getListOfTickets(flightId);}
 
-    @PutMapping(value="/get/page/{flightId}/{size}/{page}",produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "/get/list/{flightId}", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(value = HttpStatus.OK)
-    public Page<TicketResponseDto> getPageOfTickets(@PathVariable("flightId") final String flightId, @PathVariable("size")final int size, @PathVariable("page") final int page){
+    public List<TicketResponseDto> getListOfTickets(@PathVariable("flightId") final String flightId) {
+        return ticketService.getListOfTickets(flightId);
+    }
+
+    @PutMapping(value = "/get/page/{flightId}/{size}/{page}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseStatus(value = HttpStatus.OK)
+    public Page<TicketResponseDto> getPageOfTickets(@PathVariable("flightId") final String flightId, @PathVariable("size") final int size, @PathVariable("page") final int page) {
         return ticketService.getPageOfTickets(flightId, PageRequest.of(page, size));
     }
 }

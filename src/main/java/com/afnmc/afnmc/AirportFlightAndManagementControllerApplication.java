@@ -6,11 +6,11 @@ import org.springframework.data.mongodb.repository.config.EnableMongoRepositorie
 
 @EnableMongoRepositories
 @SpringBootApplication
-public class  AirportFlightAndManagementControllerApplication {
+public class AirportFlightAndManagementControllerApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(AirportFlightAndManagementControllerApplication.class, args);
-	}
+    public static void main(final String[] args) {
+        SpringApplication.run(AirportFlightAndManagementControllerApplication.class, args);
+    }
 
 }
 //dodanie modeli, repozytoriow,seriwsow (bilety,loty)

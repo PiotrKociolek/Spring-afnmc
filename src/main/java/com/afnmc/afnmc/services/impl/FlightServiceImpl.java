@@ -1,4 +1,4 @@
-package com.afnmc.afnmc.services;
+package com.afnmc.afnmc.services.impl;
 
 import com.afnmc.afnmc.exceptions.FlightNotFoundException;
 import com.afnmc.afnmc.models.documets.FlightDocument;
@@ -6,6 +6,7 @@ import com.afnmc.afnmc.models.dtos.request.ChangeFlightStatusDto;
 import com.afnmc.afnmc.models.dtos.request.CreateFlightRequestDto;
 import com.afnmc.afnmc.models.dtos.response.FlightResponseDto;
 import com.afnmc.afnmc.repositories.FlightRepository;
+import com.afnmc.afnmc.services.FlightService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
@@ -15,7 +16,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
-public class FlightServiceImpl implements FlightService {
+class FlightServiceImpl implements FlightService {
     private final FlightRepository flightRepository;
     private final ModelMapper modelMapper;
 
@@ -34,7 +35,7 @@ public class FlightServiceImpl implements FlightService {
 
     @Override
     public void addFlight(@Valid final CreateFlightRequestDto createFlightRequestDto) {
-        FlightDocument flightDocument = modelMapper.map(createFlightRequestDto, FlightDocument.class);
+        final FlightDocument flightDocument = modelMapper.map(createFlightRequestDto, FlightDocument.class);
         flightDocument.setId(null);
         flightRepository.save(flightDocument);
     }

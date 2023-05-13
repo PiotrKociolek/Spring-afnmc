@@ -1,6 +1,5 @@
 package com.afnmc.afnmc.models.documets;
 
-import com.afnmc.afnmc.models.flags.TicketType;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

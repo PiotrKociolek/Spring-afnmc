@@ -10,8 +10,10 @@ import java.util.Optional;
 
 public interface TicketRepository extends MongoRepository<TicketDocument, String> {
 
-    Optional <TicketDocument> findByPassengerName(String passengerName);
+    Optional<TicketDocument> findByPassengerName(String passengerName);
+
     List<TicketDocument> findByFlightId(String flightId);
+
     Page<TicketDocument> findAllByFlightId(String flightId, Pageable pageable);
 }
 

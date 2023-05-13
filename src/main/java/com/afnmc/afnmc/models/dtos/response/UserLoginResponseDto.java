@@ -4,13 +4,10 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Data
-public class AirportResponseDto {
-
-    private String id;
-    private String airportName;
-    private String country;
-    private String city;
+public class UserLoginResponseDto {
+    private String email;
+    private String token;
 }

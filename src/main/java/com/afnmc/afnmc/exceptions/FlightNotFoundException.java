@@ -1,3 +1,4 @@
 package com.afnmc.afnmc.exceptions;
-public class FlightNotFoundException extends RuntimeException{
+
+public class FlightNotFoundException extends RuntimeException {
 }

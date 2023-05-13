@@ -6,7 +6,6 @@ import com.afnmc.afnmc.services.AircraftService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,26 +14,29 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/aircraft")
 public class AircraftController {
     private final AircraftService aircraftService;
+
     //addAircraft(dto),removeAircraft,getAircraftById,getAircraftList
     @PutMapping(value = "/add/aircraft")
     @ResponseStatus(value = HttpStatus.OK)
-    public void addAircraft(@RequestBody AircraftRequestDto aircraftRequestDto){
+    public void addAircraft(@RequestBody final AircraftRequestDto aircraftRequestDto) {
         aircraftService.addAircraft(aircraftRequestDto);
     }
 
     @DeleteMapping(value = "/remove/aircraft/{id}")
     @ResponseStatus(value = HttpStatus.OK)
-    public void removeAircraft(@PathVariable("id")final String id){
+    public void removeAircraft(@PathVariable("id") final String id) {
         aircraftService.removeAircraft(id);
     }
+
     @PutMapping(value = "get/aircraft/{id}")
     @ResponseStatus(value = HttpStatus.OK)
-    public AircraftResponseDto getAircraftById(@PathVariable("id")final String id){
-       return aircraftService.getAircraftById(id);
+    public AircraftResponseDto getAircraftById(@PathVariable("id") final String id) {
+        return aircraftService.getAircraftById(id);
     }
+
     @PutMapping(value = "get/aircraft/list/{page}/{size}")
     @ResponseStatus(value = HttpStatus.OK)
-    public Page<AircraftResponseDto> getAircraftList(@PathVariable("page")final int page, @PathVariable("size") final int size){
+    public Page<AircraftResponseDto> getAircraftList(@PathVariable("page") final int page, @PathVariable("size") final int size) {
         return aircraftService.getAircraftList(PageRequest.of(page, size));
     }
 }
